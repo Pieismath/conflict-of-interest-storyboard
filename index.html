@@ -14,7 +14,7 @@
     color: #e0e0e0;
     font-family: 'Inter', sans-serif;
     padding: 40px 20px;
-    max-width: 860px;
+    max-width: 920px;
     margin: 0 auto;
   }
 
@@ -41,6 +41,13 @@
     text-transform: uppercase;
   }
 
+  .header .writers {
+    font-size: 0.85em;
+    color: #555;
+    margin-top: 6px;
+    font-style: italic;
+  }
+
   .scene-header {
     background: #c0392b;
     color: #fff;
@@ -50,39 +57,38 @@
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin: 48px 0 0 0;
+    margin: 52px 0 0 0;
   }
 
   .shot-list {
     list-style: none;
-    border-left: 2px solid #333;
-    margin-left: 0;
+    border-left: 2px solid #2e2e2e;
   }
 
   .shot {
-    border-bottom: 1px solid #2a2a2a;
-    padding: 20px 24px;
+    border-bottom: 1px solid #242424;
+    padding: 24px 24px 28px 24px;
     display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 16px;
+    grid-template-columns: 90px 1fr;
+    gap: 20px;
     align-items: start;
     transition: background 0.15s;
   }
 
-  .shot:hover {
-    background: #202020;
-  }
+  .shot:hover { background: #1e1e1e; }
 
   .shot-meta {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-top: 2px;
+    padding-top: 3px;
+    position: sticky;
+    top: 20px;
   }
 
   .shot-num {
     font-family: 'Courier Prime', monospace;
-    font-size: 1.1em;
+    font-size: 1.3em;
     font-weight: 700;
     color: #c0392b;
     line-height: 1;
@@ -90,52 +96,94 @@
 
   .shot-type {
     font-family: 'Courier Prime', monospace;
-    font-size: 0.7em;
+    font-size: 0.68em;
     color: #555;
     text-transform: uppercase;
-    margin-top: 5px;
-    line-height: 1.3;
+    margin-top: 6px;
+    line-height: 1.4;
   }
 
-  .shot-body {}
+  .shot-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
 
   .shot-action {
     font-size: 0.88em;
-    color: #bbb;
-    line-height: 1.7;
-    margin-bottom: 0;
+    color: #ccc;
+    line-height: 1.75;
   }
 
+  /* Spec rows */
+  .specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+    margin-top: 4px;
+  }
+
+  .spec {
+    background: #1f1f1f;
+    border: 1px solid #2c2c2c;
+    border-radius: 3px;
+    padding: 8px 12px;
+    font-size: 0.78em;
+    line-height: 1.5;
+  }
+
+  .spec-label {
+    font-family: 'Courier Prime', monospace;
+    color: #c0392b;
+    font-size: 0.8em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .spec-value {
+    color: #aaa;
+  }
+
+  .spec.full {
+    grid-column: 1 / -1;
+  }
+
+  /* Dialogue */
   .shot-dialogue {
-    margin-top: 12px;
     font-family: 'Courier Prime', monospace;
     font-size: 0.82em;
     color: #e8c84a;
     background: #111;
-    padding: 10px 14px;
+    padding: 12px 16px;
     border-left: 3px solid #c0392b;
     border-radius: 2px;
-    line-height: 1.6;
+    line-height: 1.65;
   }
 
   .shot-dialogue .char-name {
     font-weight: 700;
     color: #fff;
     display: block;
-    margin-top: 8px;
+    margin-top: 10px;
   }
 
-  .shot-dialogue .char-name:first-child {
-    margin-top: 0;
+  .shot-dialogue .char-name:first-child { margin-top: 0; }
+
+  .shot-dialogue .stage-dir {
+    color: #666;
+    font-style: italic;
   }
 
   footer {
     text-align: center;
-    margin-top: 60px;
+    margin-top: 70px;
     padding-top: 20px;
-    border-top: 1px solid #333;
-    color: #555;
-    font-size: 0.8em;
+    border-top: 1px solid #2a2a2a;
+    color: #444;
+    font-size: 0.78em;
     font-family: 'Courier Prime', monospace;
     letter-spacing: 2px;
   }
@@ -146,29 +194,45 @@
 <div class="header">
   <h1>Conflict of Interest</h1>
   <div class="subtitle">Shot List</div>
+  <div class="writers">Written by Rosie Fellig &amp; Anna Shohfi</div>
 </div>
 
-<!-- SCENE 1 -->
-<div class="scene-header">Scene 1 INT. Dorm Room Day</div>
+
+<!-- ====== SCENE 1 ====== -->
+<div class="scene-header">Scene 1 &nbsp;|&nbsp; INT. Dorm Room &nbsp;|&nbsp; Day</div>
 <ul class="shot-list">
 
   <li class="shot">
     <div class="shot-meta">
       <div class="shot-num">01</div>
-      <div class="shot-type">Wide / Establishing</div>
+      <div class="shot-type">Wide<br>Establishing</div>
     </div>
     <div class="shot-body">
-      <div class="shot-action">Lauren's hyper-feminine dorm room. Pink walls, stuffed animals, movie posters, desk cluttered with lip gloss and diaries. Lauren in a cute, skimpy matching pajama set. Aiden and Lauren lay on the bed. Camera opens on their intertwined hands.</div>
+      <div class="shot-action">Lauren's hyper-feminine dorm room fills the frame. Pink walls, neatly hung movie posters, stuffed animals piled on the bed, a throw blanket, desk buried under lip gloss, diaries, and a half-empty iced coffee. Lauren wears a cute, skimpy matching pajama set. Aiden and Lauren lay together on the bed. The camera opens tight on their intertwined hands before slowly pulling back to reveal the room.</div>
+      <div class="specs">
+        <div class="spec"><span class="spec-label">Camera</span><span class="spec-value">Static wide, slow pull-back from hands to room</span></div>
+        <div class="spec"><span class="spec-label">Lens</span><span class="spec-value">24mm, low angle on bed</span></div>
+        <div class="spec"><span class="spec-label">Lighting</span><span class="spec-value">Warm golden afternoon sun through sheer curtains; soft, diffused fill</span></div>
+        <div class="spec"><span class="spec-label">Sound</span><span class="spec-value">Ambient dorm noise; distant music from another room; quiet intimacy</span></div>
+        <div class="spec full"><span class="spec-label">Mood / Notes</span><span class="spec-value">Establish Lauren's world first. The room should feel overwhelmingly, almost satirically feminine. The warmth here is a contrast to every setting that follows.</span></div>
+      </div>
     </div>
   </li>
 
   <li class="shot">
     <div class="shot-meta">
       <div class="shot-num">02</div>
-      <div class="shot-type">Extreme Close-Up</div>
+      <div class="shot-type">Extreme<br>Close-Up</div>
     </div>
     <div class="shot-body">
-      <div class="shot-action">Aiden plays with Lauren's hands, teasing her about her bitten-down nails. She's embarrassed but charmed. He pulls her hand back with force, then starts kissing her hands all over.</div>
+      <div class="shot-action">Aiden plays with Lauren's hands, examining her bitten-down nails with exaggerated horror. She's embarrassed but laughing. He pulls her hand back with sudden force, then starts kissing her thumbs one by one, completely sincerely. She melts a little. He is effortlessly, infuriatingly charming.</div>
+      <div class="specs">
+        <div class="spec"><span class="spec-label">Camera</span><span class="spec-value">Extreme close-up on hands; occasional rack focus to her face reacting</span></div>
+        <div class="spec"><span class="spec-label">Lens</span><span class="spec-value">85mm macro</span></div>
+        <div class="spec"><span class="spec-label">Lighting</span><span class="spec-value">Continued warm afternoon gold; shallow depth of field, pink bedspread bokeh behind</span></div>
+        <div class="spec"><span class="spec-label">Sound</span><span class="spec-value">Her quiet laugh. No music yet.</span></div>
+        <div class="spec full"><span class="spec-label">Mood / Notes</span><span class="spec-value">This shot is about tenderness that he will never replicate again. The audience should want to stay here. Do not rush it.</span></div>
+      </div>
       <div class="shot-dialogue">
         <span class="char-name">AIDEN</span>
         There the sexiest thumbs I've ever seen. Let me see those nubbs.
@@ -182,10 +246,17 @@
       <div class="shot-type">Two-Shot</div>
     </div>
     <div class="shot-body">
-      <div class="shot-action">Aiden gets a notification and picks up his phone. Lauren stares at the ceiling, lost in thought. He leans his phone toward her a Goldman email with the subject line "You're him. Let me be you?" She laughs at the absurdity. Then she asks if he wants to come to date night Thursday. He's barely listening, eyes back on his phone.</div>
+      <div class="shot-action">Aiden's phone buzzes. He picks it up, rolling away slightly. Lauren stares at the ceiling, lost in her own thoughts. He tilts the phone toward her without looking away from it himself: a Goldman Sachs email, subject line "You're him. Let me be you?" She reads it, laughs at the absurdity. She asks if he wants to come to sorority date night Thursday. He gives a non-answer, eyes already back on the screen.</div>
+      <div class="specs">
+        <div class="spec"><span class="spec-label">Camera</span><span class="spec-value">Two-shot from foot of bed; she's foregrounded, he's angled away</span></div>
+        <div class="spec"><span class="spec-label">Lens</span><span class="spec-value">35mm</span></div>
+        <div class="spec"><span class="spec-label">Lighting</span><span class="spec-value">Same warm room light; the phone screen adds a cold blue cast to his face only</span></div>
+        <div class="spec"><span class="spec-label">Sound</span><span class="spec-value">Notification chime breaks the quiet. Subtle shift in score tone.</span></div>
+        <div class="spec full"><span class="spec-label">Mood / Notes</span><span class="spec-value">The phone is the first intrusion. His body language has already left the room. Lauren hasn't noticed yet, or has chosen not to.</span></div>
+      </div>
       <div class="shot-dialogue">
         <span class="char-name">LAUREN</span>
-        (reading) You're him. Let me be you?
+        <span class="stage-dir">(reading aloud)</span> "You're him. Let me be you?"
         <span class="char-name">AIDEN</span>
         That's how you get them to answer. Subject line they can't scroll past.
       </div>
@@ -198,7 +269,14 @@
       <div class="shot-type">Two-Shot</div>
     </div>
     <div class="shot-body">
-      <div class="shot-action">Aiden puts down his phone, gets out of bed, and starts buttoning his shirt. Lauren sits up slowly and watches. She confronts him "what is this?" He turns away to avoid her gaze, then quotes the Whiplash breakup scene verbatim. She catches him immediately. He kisses her hand and leaves without turning back.</div>
+      <div class="shot-action">Aiden puts his phone face-down, gets out of bed, and begins buttoning his shirt with practiced efficiency. Lauren sits up slowly, watching him. The energy shifts. She asks what this is. He turns away to avoid her eyes and delivers the Whiplash breakup monologue almost verbatim: "I'm not going to be the best version of myself with you." She catches it immediately. He kisses her hand once, holds it a half-second longer than he should, then walks out without looking back. The door closes quietly.</div>
+      <div class="specs">
+        <div class="spec"><span class="spec-label">Camera</span><span class="spec-value">Starts two-shot; cuts to OTS on Lauren as he speaks; ends on her face alone as door closes</span></div>
+        <div class="spec"><span class="spec-label">Lens</span><span class="spec-value">50mm</span></div>
+        <div class="spec"><span class="spec-label">Lighting</span><span class="spec-value">Room light slightly cooler now. The afternoon has shifted. Shadow falls across Lauren.</span></div>
+        <div class="spec"><span class="spec-label">Sound</span><span class="spec-value">Score drops out entirely when the door closes. Silence.</span></div>
+        <div class="spec full"><span class="spec-label">Mood / Notes</span><span class="spec-value">The Whiplash reference is the joke and the wound simultaneously. He is not self-aware enough to be cruel on purpose, which makes it worse. Lauren's laugh at catching the reference should die fast.</span></div>
+      </div>
       <div class="shot-dialogue">
         <span class="char-name">LAUREN</span>
         Are you quoting the breakup scene from Whiplash right now?
@@ -210,8 +288,9 @@
 
 </ul>
 
-<!-- SCENE 2 -->
-<div class="scene-header">Scene 2 INT. Huntsman, Waiting Room Day</div>
+
+<!-- ====== SCENE 2 ====== -->
+<div class="scene-header">Scene 2 &nbsp;|&nbsp; INT. Huntsman Hall, Waiting Room &nbsp;|&nbsp; Day</div>
 <ul class="shot-list">
 
   <li class="shot">
@@ -220,7 +299,14 @@
       <div class="shot-type">Medium Shot</div>
     </div>
     <div class="shot-body">
-      <div class="shot-action">Aiden sits in a sterile waiting room, brimming with excitement. He turns to the GUY next to him, another 20-something student, and forces a conversation about extracurriculars. The guy is uncomfortable. Aiden brags about his "Trombone and Men for Menstruation Society." The guy laughs uncomfortably. Aiden explains he sends cotton balls to Africa once every three months.</div>
+      <div class="shot-action">Hard cut to: a sterile corporate waiting room. Rows of identical chairs. Every guy here looks like Aiden. Aiden sits brimming with barely contained energy, already eyeing the guy next to him. He forces a conversation about extracurriculars. The guy is instantly uncomfortable. Aiden rattles off his resume like a grocery list, landing on "Trombone and Men for Menstruation Society" with enormous pride. The guy laughs awkwardly. Aiden elaborates: he sends cotton balls to Africa once every three months. The guy nods slowly and looks away.</div>
+      <div class="specs">
+        <div class="spec"><span class="spec-label">Camera</span><span class="spec-value">Medium two-shot on the bench; Aiden slightly closer to camera to imply he's encroaching</span></div>
+        <div class="spec"><span class="spec-label">Lens</span><span class="spec-value">35mm</span></div>
+        <div class="spec"><span class="spec-label">Lighting</span><span class="spec-value">Harsh fluorescent overhead; no warmth, no depth. Institutional.</span></div>
+        <div class="spec"><span class="spec-label">Sound</span><span class="spec-value">Ambient HVAC hum. Muffled voices from offices. No score.</span></div>
+        <div class="spec full"><span class="spec-label">Mood / Notes</span><span class="spec-value">The contrast with Scene 1 should feel jarring. This world is cold and performative. Aiden is in his element. He shouldn't be.</span></div>
+      </div>
       <div class="shot-dialogue">
         <span class="char-name">AIDEN</span>
         Trombone and Men for Menstruation Society. That Kathy lady ate it up.
@@ -234,7 +320,14 @@
       <div class="shot-type">Medium Shot</div>
     </div>
     <div class="shot-body">
-      <div class="shot-action">Aiden's name is called. He goes to dap up the guy, but the guy doesn't realize. Aiden waits awkwardly. When they finally try, Aiden hits his forearm instead of his hand. They try again Aiden punches him. The guy yelps. Aiden throws finger guns and walks off.</div>
+      <div class="shot-action">A receptionist calls Aiden's name. He stands, turns to the guy, and initiates a dap. The guy doesn't clock it in time. Aiden waits. The guy slowly raises his hand. They try: Aiden's fist connects with his forearm. An awkward pause. They try again. Aiden punches him directly in the hand. The guy yelps. Aiden, unfazed, throws double finger guns at him and strides away.</div>
+      <div class="specs">
+        <div class="spec"><span class="spec-label">Camera</span><span class="spec-value">Medium; holds wide enough to catch both of them through the full botched sequence</span></div>
+        <div class="spec"><span class="spec-label">Lens</span><span class="spec-value">35mm</span></div>
+        <div class="spec"><span class="spec-label">Lighting</span><span class="spec-value">Same harsh fluorescent</span></div>
+        <div class="spec"><span class="spec-label">Sound</span><span class="spec-value">The yelp lands in dead silence. The finger guns are silent. Cut.</span></div>
+        <div class="spec full"><span class="spec-label">Mood / Notes</span><span class="spec-value">Play this completely straight. No comic sting. Aiden's confidence is completely unshaken by the fact that he just punched a stranger. That is the joke.</span></div>
+      </div>
       <div class="shot-dialogue">
         <span class="char-name">GUY</span>
         Ow, fuck.
@@ -244,8 +337,9 @@
 
 </ul>
 
-<!-- SCENE 3 -->
-<div class="scene-header">Scene 3 INT. Office Room Day The Interview</div>
+
+<!-- ====== SCENE 3 ====== -->
+<div class="scene-header">Scene 3 &nbsp;|&nbsp; INT. Office Room &nbsp;|&nbsp; Day &nbsp;|&nbsp; The Interview</div>
 <ul class="shot-list">
 
   <li class="shot">
@@ -254,7 +348,14 @@
       <div class="shot-type">Medium Shot</div>
     </div>
     <div class="shot-body">
-      <div class="shot-action">Aiden enters a standard office. JARED, a 30-something white male, sits at the table organizing papers. He stands, smiles warmly, and shakes Aiden's hand. Aiden relaxes this feels good.</div>
+      <div class="shot-action">Aiden enters a generic office: conference table, scattered papers, framed Goldman poster on the wall. JARED (30s, clean-cut, khakis, the kind of guy who quotes Moneyball) stands and extends his hand with a warm smile. Aiden shakes it firmly, makes solid eye contact, recites his name back. For a moment, this feels like it's going to go well. Aiden allows himself to relax.</div>
+      <div class="specs">
+        <div class="spec"><span class="spec-label">Camera</span><span class="spec-value">Medium; catches the handshake front-on; slight low angle on Jared to subtly establish power</span></div>
+        <div class="spec"><span class="spec-label">Lens</span><span class="spec-value">50mm</span></div>
+        <div class="spec"><span class="spec-label">Lighting</span><span class="spec-value">Neutral office fluorescent with a warmer desk lamp in frame; deliberately unremarkable</span></div>
+        <div class="spec"><span class="spec-label">Sound</span><span class="spec-value">A single low piano note begins. Almost imperceptible.</span></div>
+        <div class="spec full"><span class="spec-label">Mood / Notes</span><span class="spec-value">Jared's warmth is genuine-seeming. Do not tip the hand yet. The audience, like Aiden, should feel cautiously optimistic.</span></div>
+      </div>
       <div class="shot-dialogue">
         <span class="char-name">JARED</span>
         Aiden, it's nice to meet you. Hopefully not giving you too much of a hard time?
@@ -265,10 +366,17 @@
   <li class="shot">
     <div class="shot-meta">
       <div class="shot-num">08</div>
-      <div class="shot-type">Close-Up / Reaction</div>
+      <div class="shot-type">Close-Up<br>Reaction</div>
     </div>
     <div class="shot-body">
-      <div class="shot-action">Aiden delivers his why-Goldman answer, ending with "Goldman is the gold standard." Jared covers his mouth with his hand and silently mouths "oh my god" over and over again. His expression is barely contained mockery. Aiden suffers through a laugh, not quite sure what's happening.</div>
+      <div class="shot-action">Aiden delivers his why-Goldman pitch with total commitment, landing on "Goldman is the gold standard" like a punchline he's proud of. Jared goes still. Then, slowly, he brings his hand up to his mouth. His eyes go wide. He mouths "oh my god" silently, over and over, staring just past Aiden. His expression is not impressed. It is barely contained contempt passing as amusement. Aiden clocks something is wrong but can't name it. He lets out an uncertain laugh.</div>
+      <div class="specs">
+        <div class="spec"><span class="spec-label">Camera</span><span class="spec-value">Tight close-up on Jared's face; cut to Aiden's slightly confused smile; back to Jared</span></div>
+        <div class="spec"><span class="spec-label">Lens</span><span class="spec-value">85mm, flat</span></div>
+        <div class="spec"><span class="spec-label">Lighting</span><span class="spec-value">Desk lamp catches the shine in Jared's eyes. He looks clinical.</span></div>
+        <div class="spec"><span class="spec-label">Sound</span><span class="spec-value">Score tension holds. No resolution.</span></div>
+        <div class="spec full"><span class="spec-label">Mood / Notes</span><span class="spec-value">Jared's "oh my god" must read as mockery to the audience and ambiguous to Aiden. His line reading of "inspired, poignant" should be completely flat.</span></div>
+      </div>
       <div class="shot-dialogue">
         <span class="char-name">JARED</span>
         Wow. You chat that man? That's inspired, poignant.
@@ -282,12 +390,19 @@
       <div class="shot-type">Over-the-Shoulder</div>
     </div>
     <div class="shot-body">
-      <div class="shot-action">The interview takes a sinister turn. After Aiden's commitment answer, Jared's questions go off-script: "You respect your mom? You like women? Sexually. Do you like brunettes?" Aiden's confusion grows. He stammers. He tries to answer but can't find the ground. Jared is calm, almost clinical.</div>
+      <div class="shot-action">The interview turns. Aiden answers a commitment question. Jared pauses, looks at his notepad, then without inflection asks: "Do you respect your mom?" Aiden says yes. "Do you like women?" A beat. Aiden says yes. "Sexually?" Longer beat. "Do you like brunettes?" Aiden opens his mouth. Nothing comes. He tries to redirect. Jared watches him, completely calm, pen still. The stillness is more unsettling than the questions.</div>
+      <div class="specs">
+        <div class="spec"><span class="spec-label">Camera</span><span class="spec-value">OTS from behind Aiden looking at Jared; Jared fills the frame, Aiden's shoulder and ear visible</span></div>
+        <div class="spec"><span class="spec-label">Lens</span><span class="spec-value">85mm compressed</span></div>
+        <div class="spec"><span class="spec-label">Lighting</span><span class="spec-value">Jared is lit; Aiden's side is slightly cooler, slightly darker</span></div>
+        <div class="spec"><span class="spec-label">Sound</span><span class="spec-value">Score drops out. Room noise only. The HVAC feels loud suddenly.</span></div>
+        <div class="spec full"><span class="spec-label">Mood / Notes</span><span class="spec-value">Jared's power is in his stillness. He is never angry, never loud. Each question lands in the silence after the last one. Aiden's stammering is what carries the horror.</span></div>
+      </div>
       <div class="shot-dialogue">
         <span class="char-name">JARED</span>
         Do you like brunettes?
         <span class="char-name">AIDEN</span>
-        Ye- I'm sorry, how is this relevant?
+        Ye... I'm sorry, how is this relevant?
       </div>
     </div>
   </li>
@@ -298,7 +413,14 @@
       <div class="shot-type">Medium Shot</div>
     </div>
     <div class="shot-body">
-      <div class="shot-action">Jared suddenly stands up, leans over the table no handshake. He chuckles: "What a waste of time this was." He slides his business card across the desk. Aiden is frozen. His face drops. He takes the card and leaves the room, shell-shocked.</div>
+      <div class="shot-action">Without warning, Jared stands. Pushes back from the table. Leans forward on his hands and looks down at Aiden with something between boredom and satisfaction. He does not extend his hand. He slides his business card across the table with one finger. Aiden stares at it. His face goes blank. He picks up the card, stands, and walks to the door. His hand is on the knob before Jared speaks.</div>
+      <div class="specs">
+        <div class="spec"><span class="spec-label">Camera</span><span class="spec-value">Medium on Jared standing; insert on card sliding across desk; cut to Aiden's face; wide as he walks to door</span></div>
+        <div class="spec"><span class="spec-label">Lens</span><span class="spec-value">35mm, slight high angle on Aiden</span></div>
+        <div class="spec"><span class="spec-label">Lighting</span><span class="spec-value">Unchanged. The mundanity of the room makes the humiliation worse.</span></div>
+        <div class="spec"><span class="spec-label">Sound</span><span class="spec-value">Card sliding on table. Chair scrape. Silence.</span></div>
+        <div class="spec full"><span class="spec-label">Mood / Notes</span><span class="spec-value">The card is the killing move. It replaces the handshake. Jared is not cruel out of malice; he is simply finished. That indifference is the worst thing he could do to someone like Aiden.</span></div>
+      </div>
       <div class="shot-dialogue">
         <span class="char-name">JARED</span>
         I think we're done here. What a waste of time this was. Have a good day, Aiden.
@@ -308,8 +430,9 @@
 
 </ul>
 
-<!-- SCENE 4 -->
-<div class="scene-header">Scene 4 INT. Huntsman, Waiting Room Day The Walk of Shame</div>
+
+<!-- ====== SCENE 4 ====== -->
+<div class="scene-header">Scene 4 &nbsp;|&nbsp; INT. Huntsman Hall, Waiting Room &nbsp;|&nbsp; Day &nbsp;|&nbsp; The Walk of Shame</div>
 <ul class="shot-list">
 
   <li class="shot">
@@ -318,24 +441,39 @@
       <div class="shot-type">Wide Shot</div>
     </div>
     <div class="shot-body">
-      <div class="shot-action">Aiden walks out past the waiting room. In the background, the guy he talked to earlier is shaking his interviewer's hand he must have gotten the job. Aiden barely registers it. He looks down at the business card in his hand.</div>
+      <div class="shot-action">Aiden walks out of the office hallway and back through the waiting room. He moves slowly, eyes down, tie slightly loosened. In the background, soft-focused: the guy from the bench is now standing, shaking hands with an interviewer, beaming. He got it. Aiden passes without seeing him. He looks down at the business card in his hand as he exits through the glass doors.</div>
+      <div class="specs">
+        <div class="spec"><span class="spec-label">Camera</span><span class="spec-value">Wide, static; Aiden walks toward camera while background action plays out behind him in focus</span></div>
+        <div class="spec"><span class="spec-label">Lens</span><span class="spec-value">35mm; rack focus from background handshake to Aiden's face mid-walk</span></div>
+        <div class="spec"><span class="spec-label">Lighting</span><span class="spec-value">Fluorescent. Cold. Unchanged from before.</span></div>
+        <div class="spec"><span class="spec-label">Sound</span><span class="spec-value">The background handshake is silent to us. We are inside Aiden's head. Only footsteps.</span></div>
+        <div class="spec full"><span class="spec-label">Mood / Notes</span><span class="spec-value">Do not editorialize. Just hold the wide. Let the audience do the math: the guy he punched just got the job Aiden wanted.</span></div>
+      </div>
     </div>
   </li>
 
   <li class="shot">
     <div class="shot-meta">
       <div class="shot-num">12</div>
-      <div class="shot-type">Insert / Match Cut</div>
+      <div class="shot-type">Insert<br>Match Cut</div>
     </div>
     <div class="shot-body">
-      <div class="shot-action">Close-up on the business card: JARED SHOHFI. It clicks. MATCH CUT to Lauren's dorm room door nameplate: LAUREN SHOHFI.</div>
+      <div class="shot-action">Extreme close-up on Jared's business card in Aiden's hand: JARED SHOHFI, Goldman Sachs. The name registers. MATCH CUT: the same framing, the same light, a door nameplate in a dorm hallway. LAUREN SHOHFI. Hold on it.</div>
+      <div class="specs">
+        <div class="spec"><span class="spec-label">Camera</span><span class="spec-value">Extreme close-up, identical framing both sides of the cut</span></div>
+        <div class="spec"><span class="spec-label">Lens</span><span class="spec-value">85mm macro, overhead</span></div>
+        <div class="spec"><span class="spec-label">Lighting</span><span class="spec-value">Card: cold office light. Nameplate: warm hallway light. Same frame, different world.</span></div>
+        <div class="spec"><span class="spec-label">Sound</span><span class="spec-value">A single chord, sustained. The kind that doesn't resolve.</span></div>
+        <div class="spec full"><span class="spec-label">Mood / Notes</span><span class="spec-value">This is the pivot of the film. The match cut is the reveal. Hold both images long enough for it to land fully before cutting to Scene 5.</span></div>
+      </div>
     </div>
   </li>
 
 </ul>
 
-<!-- SCENE 5 -->
-<div class="scene-header">Scene 5 INT. Dorm Room Hall / Dorm Room Evening The Confrontation</div>
+
+<!-- ====== SCENE 5 ====== -->
+<div class="scene-header">Scene 5 &nbsp;|&nbsp; INT. Dorm Room Hall / Lauren's Room &nbsp;|&nbsp; Evening &nbsp;|&nbsp; The Confrontation</div>
 <ul class="shot-list">
 
   <li class="shot">
@@ -344,7 +482,14 @@
       <div class="shot-type">Medium Shot</div>
     </div>
     <div class="shot-body">
-      <div class="shot-action">Aiden bangs on Lauren's door. She swings it open, confused. He walks past her into the room. She's annoyed and faintly hopeful. He confronts her "Your brother works at Goldman?" She scoffs: "I've told you this a million times." Lauren laughs when he tells her Jared asked about brunettes and his mom. Then she turns cold again.</div>
+      <div class="shot-action">Aiden knocks on Lauren's door with urgency. She swings it open in a different outfit, confused and faintly hopeful. He brushes past her into the room. She crosses her arms. He wheels on her: "Your brother works at Goldman?" She stares at him. "I've told you this a million times." He tells her what Jared asked: the mom, the women, the brunettes. She bursts out laughing. It's absurd and she finds it genuinely funny. Then her face closes. She remembers she's supposed to be angry at him.</div>
+      <div class="specs">
+        <div class="spec"><span class="spec-label">Camera</span><span class="spec-value">Medium; starts on door, follows them into the room; stays mobile, handheld</span></div>
+        <div class="spec"><span class="spec-label">Lens</span><span class="spec-value">35mm handheld</span></div>
+        <div class="spec"><span class="spec-label">Lighting</span><span class="spec-value">Evening warm gold from the window again, but dimmer. The pink room feels different now that she's angry in it.</span></div>
+        <div class="spec"><span class="spec-label">Sound</span><span class="spec-value">Her laugh is the most alive sound in the film so far. Let it breathe before it dies.</span></div>
+        <div class="spec full"><span class="spec-label">Mood / Notes</span><span class="spec-value">Lauren's laugh is key. She still likes him. That is why this scene works. The anger and the affection are fighting each other in real time.</span></div>
+      </div>
       <div class="shot-dialogue">
         <span class="char-name">AIDEN</span>
         Your brother works at Goldman?
@@ -360,7 +505,14 @@
       <div class="shot-type">Two-Shot</div>
     </div>
     <div class="shot-body">
-      <div class="shot-action">Aiden reaches for Lauren's hands, says he doesn't even care about Goldman anymore. She pushes him away. Then she delivers the killing blow the speech about labels. Why do you need Goldman? Why did you need Wharton? Labels mean EVERYTHING. "And it's clear they mean more to you than real humans do." She grabs her bag.</div>
+      <div class="shot-action">Aiden steps toward her, reaches for her hands, says he doesn't care about Goldman anymore. She pulls back. Something shifts in her. She picks up her bag. And then she delivers it: calm, clear, controlled. The speech about labels. Why do you need Goldman? Why did you need Wharton? It keeps escalating. "Labels mean EVERYTHING." She lands each word. "And it's clear they mean more to you than real humans do." She hoists her bag and walks to the door.</div>
+      <div class="specs">
+        <div class="spec"><span class="spec-label">Camera</span><span class="spec-value">Two-shot shifts to single on Lauren as the speech builds; cut to Aiden only for his silence</span></div>
+        <div class="spec"><span class="spec-label">Lens</span><span class="spec-value">50mm</span></div>
+        <div class="spec"><span class="spec-label">Lighting</span><span class="spec-value">Evening light has shifted. The room is dimmer. Only the lamp behind Lauren is lit; she's backlit, slightly silhouetted.</span></div>
+        <div class="spec"><span class="spec-label">Sound</span><span class="spec-value">No score. Her voice carries the whole shot.</span></div>
+        <div class="spec full"><span class="spec-label">Mood / Notes</span><span class="spec-value">She is not yelling. That is important. The more controlled she is, the more it destroys him. Aiden's silence here is his only honest moment in the film.</span></div>
+      </div>
       <div class="shot-dialogue">
         <span class="char-name">LAUREN</span>
         Why do we need a label? Why do you need Goldman? Why did you need Wharton? Labels mean EVERYTHING. And it's clear they mean more to you than real humans do.
@@ -374,14 +526,22 @@
       <div class="shot-type">Wide Shot</div>
     </div>
     <div class="shot-body">
-      <div class="shot-action">Lauren exits. Aiden stays alone in her pink room. The evening light dims. He looks around at her things stuffed animals, posters. He sifts through a pile of her books. For the first time, Aiden takes a real look at Lauren. He can't remember the last time he asked her a question about herself. Quiet. Heavy.</div>
+      <div class="shot-action">Lauren leaves. The door clicks shut quietly. Aiden stands alone in her pink room as the light dims around him. He doesn't move for a moment. Then he starts looking: at the stuffed animals, the posters, the books stacked on her desk. He picks one up and looks at the cover like he's reading it for the first time. He can't remember the last time he asked her what she was reading. Or anything about her, really. He sets the book down. The room holds him.</div>
+      <div class="specs">
+        <div class="spec"><span class="spec-label">Camera</span><span class="spec-value">Wide, static; Aiden small in the frame, surrounded by her things</span></div>
+        <div class="spec"><span class="spec-label">Lens</span><span class="spec-value">24mm, slightly elevated; he should feel small in her world</span></div>
+        <div class="spec"><span class="spec-label">Lighting</span><span class="spec-value">Natural dusk through the window. No artificial light on. The pink gradually grays.</span></div>
+        <div class="spec"><span class="spec-label">Sound</span><span class="spec-value">Near silence. Distant campus sounds. A single sustained note, very quiet.</span></div>
+        <div class="spec full"><span class="spec-label">Mood / Notes</span><span class="spec-value">The widest, quietest shot in the film. His stillness is the closest thing to character growth we will see. Do not cut away too soon.</span></div>
+      </div>
     </div>
   </li>
 
 </ul>
 
-<!-- SCENE 6 -->
-<div class="scene-header">Scene 6 EXT. Locust Walk Day One Summer Later</div>
+
+<!-- ====== SCENE 6 ====== -->
+<div class="scene-header">Scene 6 &nbsp;|&nbsp; EXT. Locust Walk &nbsp;|&nbsp; Day &nbsp;|&nbsp; One Summer Later</div>
 <ul class="shot-list">
 
   <li class="shot">
@@ -390,7 +550,14 @@
       <div class="shot-type">Medium / Wide</div>
     </div>
     <div class="shot-body">
-      <div class="shot-action">A full summer has passed. Aiden walks along Locust Walk and stops at a wooden podium covered in flyers. Lauren's face is on a poster: "Penn's Most Accomplished Interns" listing McKinsey, Bain, BCG, Palantir, Goldman Sachs. Lauren emerges from behind the podium. She was just stapling flyers. They run into each other.</div>
+      <div class="shot-action">A title card: ONE SUMMER LATER. Locust Walk in full autumn. Aiden walks along the path, hands in his pockets, eyes scanning. He stops at a bulletin board covered in flyers and posters. One jumps out: a glossy printed flyer, "Penn's Most Accomplished Interns," with Lauren's photo on it, smiling. The list beneath her: McKinsey, Bain, BCG, Palantir, Goldman Sachs. He stares at it. Then Lauren steps out from behind the board, staple gun in hand, a stack of flyers under her arm. She sees him. He sees her. They stand there.</div>
+      <div class="specs">
+        <div class="spec"><span class="spec-label">Camera</span><span class="spec-value">Starts medium on Aiden walking; pushes in as he stops; wide when Lauren appears</span></div>
+        <div class="spec"><span class="spec-label">Lens</span><span class="spec-value">35mm</span></div>
+        <div class="spec"><span class="spec-label">Lighting</span><span class="spec-value">Bright autumn day; dappled tree light; open and airy in contrast to every interior so far</span></div>
+        <div class="spec"><span class="spec-label">Sound</span><span class="spec-value">Campus ambience. Footsteps. A beat of silence when they see each other.</span></div>
+        <div class="spec full"><span class="spec-label">Mood / Notes</span><span class="spec-value">Lauren should look good. Poised, put-together, unbothered. The staple gun is a perfect prop. She was in the middle of something. He walked into her world again.</span></div>
+      </div>
     </div>
   </li>
 
@@ -400,7 +567,14 @@
       <div class="shot-type">Two-Shot</div>
     </div>
     <div class="shot-body">
-      <div class="shot-action">Stilted, awkward small talk. Lauren did Palantir she got the offer last fall, was literally with Aiden when it came through. He didn't remember. He mumbles that he "worked in legal." She probes. He hedges. She calls it: "Was it your dad's firm in New Jersey?" He deflects: "confidential, high-brow clients." A beat of silence. Then Aiden asks if she'd refer him for next summer.</div>
+      <div class="shot-action">Stilted small talk. Lauren fills the silence easily: she spent the summer at Palantir, got the offer last October. Aiden almost visibly realizes she was with him when that email came through. He said nothing. She keeps her voice light. She asks what he did. He hedges. "Worked in legal." She tilts her head. "Was it your dad's firm in New Jersey?" He pivots hard: "confidential clientele, high-brow work." A beat. And then, somehow, he asks if she would refer him for next summer.</div>
+      <div class="specs">
+        <div class="spec"><span class="spec-label">Camera</span><span class="spec-value">Two-shot with physical distance between them; no warmth in the framing</span></div>
+        <div class="spec"><span class="spec-label">Lens</span><span class="spec-value">50mm</span></div>
+        <div class="spec"><span class="spec-label">Lighting</span><span class="spec-value">Open daylight; no shadows; nowhere to hide</span></div>
+        <div class="spec"><span class="spec-label">Sound</span><span class="spec-value">Ambient. No score. The silences between lines do the work.</span></div>
+        <div class="spec full"><span class="spec-label">Mood / Notes</span><span class="spec-value">When he asks for the referral the camera should hold completely still. No reaction shot. Just the question hanging in the air. Make the audience feel it before Lauren does.</span></div>
+      </div>
       <div class="shot-dialogue">
         <span class="char-name">LAUREN</span>
         Was it your dad's firm in New Jersey?
@@ -413,10 +587,17 @@
   <li class="shot">
     <div class="shot-meta">
       <div class="shot-num">18</div>
-      <div class="shot-type">Wide Shot / Final Frame</div>
+      <div class="shot-type">Wide Shot<br>Final Frame</div>
     </div>
     <div class="shot-body">
-      <div class="shot-action">Lauren's face. Then: "Yeah, of course Aiden. And while we're at it, I'll give you head." She unloads fuck Goldman, fuck the non-profit, fuck the period club. She walks away calling back: "And I'm removing you on LinkedIn!" Aiden checks his phone. His face: devastated. His mouth forms the last words of the film.</div>
+      <div class="shot-action">Lauren looks at him for a long moment. Then: "Yeah, of course, Aiden. And while we're at it, I'll give you head." She unloads. Fuck Goldman. Fuck the non-profit. Fuck the period cotton balls. She walks. Calls back over her shoulder: "And I'm removing you on LinkedIn!" She is gone. Aiden stands on Locust Walk alone. He pulls out his phone. Opens LinkedIn. His face crumbles. He looks up from the screen, mouth open.</div>
+      <div class="specs">
+        <div class="spec"><span class="spec-label">Camera</span><span class="spec-value">Starts two-shot; widens as she walks away; ends on Aiden alone in the wide frame, very small</span></div>
+        <div class="spec"><span class="spec-label">Lens</span><span class="spec-value">24mm for the final frame; he should be nearly dwarfed by Locust Walk</span></div>
+        <div class="spec"><span class="spec-label">Lighting</span><span class="spec-value">Same bright open day. The world doesn't care.</span></div>
+        <div class="spec"><span class="spec-label">Sound</span><span class="spec-value">Her footsteps fade. Campus noise continues. His last line lands in full ambient sound. Hard cut to black. No score.</span></div>
+        <div class="spec full"><span class="spec-label">Mood / Notes</span><span class="spec-value">His last line has to land as both the funniest and saddest moment of the film simultaneously. The wide frame is essential: he is a small person in a large world he is desperately trying to rank himself in. Hold on the empty walkway after he exits. Then black.</span></div>
+      </div>
       <div class="shot-dialogue">
         <span class="char-name">LAUREN</span>
         And I'm removing you on LinkedIn!
@@ -428,7 +609,7 @@
 
 </ul>
 
-<footer>CONFLICT OF INTEREST Shot List</footer>
+<footer>CONFLICT OF INTEREST &nbsp;|&nbsp; Shot List &nbsp;|&nbsp; Rosie Fellig &amp; Anna Shohfi</footer>
 
 </body>
 </html>
