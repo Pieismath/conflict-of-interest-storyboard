@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CONFLICT OF INTEREST,Storyboard</title>
+<title>CONFLICT OF INTEREST — Shot List</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Inter:wght@300;400;600;700&display=swap');
 
@@ -14,6 +14,8 @@
     color: #e0e0e0;
     font-family: 'Inter', sans-serif;
     padding: 40px 20px;
+    max-width: 860px;
+    margin: 0 auto;
   }
 
   .header {
@@ -39,152 +41,92 @@
     text-transform: uppercase;
   }
 
-  .header .writers {
-    font-size: 0.9em;
-    color: #666;
-    margin-top: 8px;
-    font-style: italic;
-  }
-
   .scene-header {
     background: #c0392b;
     color: #fff;
-    padding: 12px 24px;
+    padding: 10px 20px;
     font-family: 'Courier Prime', monospace;
-    font-size: 1em;
+    font-size: 0.9em;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin: 50px 0 24px 0;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 48px 0 0 0;
   }
 
-  .panels-grid {
+  .shot-list {
+    list-style: none;
+    border-left: 2px solid #333;
+    margin-left: 0;
+  }
+
+  .shot {
+    border-bottom: 1px solid #2a2a2a;
+    padding: 20px 24px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto 20px auto;
+    grid-template-columns: 80px 1fr;
+    gap: 16px;
+    align-items: start;
+    transition: background 0.15s;
   }
 
-  .panel {
-    background: #242424;
-    border: 1px solid #333;
-    border-radius: 4px;
-    overflow: hidden;
-    transition: transform 0.2s;
+  .shot:hover {
+    background: #202020;
   }
 
-  .panel:hover {
-    transform: scale(1.01);
-    border-color: #555;
+  .shot-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 2px;
   }
 
-  .panel-number {
-    background: #333;
-    color: #c0392b;
+  .shot-num {
     font-family: 'Courier Prime', monospace;
+    font-size: 1.1em;
     font-weight: 700;
-    font-size: 0.85em;
-    padding: 6px 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    color: #c0392b;
+    line-height: 1;
   }
 
-  .panel-number .shot-type {
-    color: #888;
-    font-weight: 400;
-    font-size: 0.85em;
-  }
-
-  .panel-image-container {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background: #111;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .panel-image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .panel-image-container .placeholder {
-    color: #444;
-    font-size: 0.85em;
-    text-align: center;
-    padding: 20px;
+  .shot-type {
     font-family: 'Courier Prime', monospace;
+    font-size: 0.7em;
+    color: #555;
+    text-transform: uppercase;
+    margin-top: 5px;
+    line-height: 1.3;
   }
 
-  .placeholder .panel-icon {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-    opacity: 0.3;
+  .shot-body {}
+
+  .shot-action {
+    font-size: 0.88em;
+    color: #bbb;
+    line-height: 1.7;
+    margin-bottom: 0;
   }
 
-  .panel-info {
-    padding: 16px;
-  }
-
-  .panel-action {
-    font-size: 0.85em;
-    color: #aaa;
-    line-height: 1.6;
-    margin-bottom: 10px;
-  }
-
-  .panel-dialogue {
+  .shot-dialogue {
+    margin-top: 12px;
     font-family: 'Courier Prime', monospace;
-    font-size: 0.8em;
+    font-size: 0.82em;
     color: #e8c84a;
-    background: #1a1a1a;
+    background: #111;
     padding: 10px 14px;
     border-left: 3px solid #c0392b;
     border-radius: 2px;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
-  .panel-dialogue .char-name {
+  .shot-dialogue .char-name {
     font-weight: 700;
     color: #fff;
     display: block;
-    margin-bottom: 2px;
+    margin-top: 8px;
   }
 
-  .instructions {
-    max-width: 1200px;
-    margin: 0 auto 40px auto;
-    background: #242424;
-    border: 1px solid #333;
-    border-radius: 4px;
-    padding: 24px;
-    font-size: 0.9em;
-    color: #999;
-    line-height: 1.7;
-  }
-
-  .instructions h3 {
-    color: #fff;
-    margin-bottom: 10px;
-    font-size: 1em;
-  }
-
-  .instructions code {
-    background: #333;
-    padding: 2px 6px;
-    border-radius: 3px;
-    color: #e8c84a;
-    font-family: 'Courier Prime', monospace;
+  .shot-dialogue .char-name:first-child {
+    margin-top: 0;
   }
 
   footer {
@@ -194,14 +136,8 @@
     border-top: 1px solid #333;
     color: #555;
     font-size: 0.8em;
-  }
-
-  @media print {
-    body { background: #fff; color: #000; }
-    .panel { break-inside: avoid; border: 2px solid #000; }
-    .scene-header { background: #000; }
-    .panel-dialogue { color: #333; background: #f5f5f5; }
-    .instructions { display: none; }
+    font-family: 'Courier Prime', monospace;
+    letter-spacing: 2px;
   }
 </style>
 </head>
@@ -209,316 +145,290 @@
 
 <div class="header">
   <h1>Conflict of Interest</h1>
-  <div class="subtitle">Visual Storyboard</div>
+  <div class="subtitle">Shot List</div>
 </div>
 
-<!-- ============ SCENE 1: DORM ROOM ============ -->
-<div class="scene-header">Scene 1 - INT. Dorm Room - Day</div>
+<!-- SCENE 1 -->
+<div class="scene-header">Scene 1 — INT. Dorm Room — Day</div>
+<ul class="shot-list">
 
-<div class="panels-grid">
+  <li class="shot">
+    <div class="shot-meta">
+      <div class="shot-num">01</div>
+      <div class="shot-type">Wide / Establishing</div>
+    </div>
+    <div class="shot-body">
+      <div class="shot-action">Lauren's hyper-feminine dorm room. Pink walls, stuffed animals, movie posters, desk cluttered with lip gloss and diaries. Lauren in a cute, skimpy matching pajama set. Aiden and Lauren lay on the bed. Camera opens on their intertwined hands.</div>
+    </div>
+  </li>
 
-  <div class="panel">
-    <div class="panel-number">Panel 01 <span class="shot-type">WIDE / ESTABLISHING</span></div>
-    <div class="panel-image-container">
-      <img src="panel_01.png" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
-      <div class="placeholder" style="display:none;"><div class="panel-icon">&#9634;</div>Save as panel_01.png</div>
+  <li class="shot">
+    <div class="shot-meta">
+      <div class="shot-num">02</div>
+      <div class="shot-type">Extreme Close-Up</div>
     </div>
-    <div class="panel-info">
-      <div class="panel-action">Lauren's hyper-feminine dorm room. Pink walls, stuffed animals, movie posters, desk cluttered with lip gloss and diaries. Lauren in a cute, skimpy matching pajama set. Aiden and Lauren lay on the bed. Camera opens on their intertwined hands.</div>
-    </div>
-  </div>
-
-  <div class="panel">
-    <div class="panel-number">Panel 02 <span class="shot-type">EXTREME CLOSE-UP</span></div>
-    <div class="panel-image-container">
-      <img src="panel_02.png" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
-      <div class="placeholder" style="display:none;"><div class="panel-icon">&#9634;</div>Save as panel_02.png</div>
-    </div>
-    <div class="panel-info">
-      <div class="panel-action">Aiden plays with Lauren's hands, teasing her about her bitten-down nails. She's embarrassed but charmed. He pulls her hand back with force, then starts kissing her hands all over.</div>
-      <div class="panel-dialogue">
+    <div class="shot-body">
+      <div class="shot-action">Aiden plays with Lauren's hands, teasing her about her bitten-down nails. She's embarrassed but charmed. He pulls her hand back with force, then starts kissing her hands all over.</div>
+      <div class="shot-dialogue">
         <span class="char-name">AIDEN</span>
         There the sexiest thumbs I've ever seen. Let me see those nubbs.
       </div>
     </div>
-  </div>
+  </li>
 
-  <div class="panel">
-    <div class="panel-number">Panel 03 <span class="shot-type">TWO-SHOT</span></div>
-    <div class="panel-image-container">
-      <img src="panel_03.png" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
-      <div class="placeholder" style="display:none;"><div class="panel-icon">&#9634;</div>Save as panel_03.png</div>
+  <li class="shot">
+    <div class="shot-meta">
+      <div class="shot-num">03</div>
+      <div class="shot-type">Two-Shot</div>
     </div>
-    <div class="panel-info">
-      <div class="panel-action">Aiden gets a notification and picks up his phone. Lauren stares at the ceiling, lost in thought. He leans his phone toward her,a Goldman email with the subject line "You're him. Let me be you?" She laughs at the absurdity. Then she asks if he wants to come to date night Thursday. He's barely listening, eyes back on his phone.</div>
-      <div class="panel-dialogue">
+    <div class="shot-body">
+      <div class="shot-action">Aiden gets a notification and picks up his phone. Lauren stares at the ceiling, lost in thought. He leans his phone toward her — a Goldman email with the subject line "You're him. Let me be you?" She laughs at the absurdity. Then she asks if he wants to come to date night Thursday. He's barely listening, eyes back on his phone.</div>
+      <div class="shot-dialogue">
         <span class="char-name">LAUREN</span>
-        (reading) You're him. Let me be you?<br/>
+        (reading) You're him. Let me be you?
         <span class="char-name">AIDEN</span>
         That's how you get them to answer. Subject line they can't scroll past.
       </div>
     </div>
-  </div>
+  </li>
 
-  <div class="panel">
-    <div class="panel-number">Panel 04 <span class="shot-type">TWO-SHOT</span></div>
-    <div class="panel-image-container">
-      <img src="panel_04.png" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
-      <div class="placeholder" style="display:none;"><div class="panel-icon">&#9634;</div>Save as panel_04.png</div>
+  <li class="shot">
+    <div class="shot-meta">
+      <div class="shot-num">04</div>
+      <div class="shot-type">Two-Shot</div>
     </div>
-    <div class="panel-info">
-      <div class="panel-action">Aiden puts down his phone, gets out of bed, and starts buttoning his shirt. Lauren sits up slowly and watches. She confronts him,"what is this?" He turns away to avoid her gaze, then quotes the Whiplash breakup scene verbatim. She catches him immediately. He kisses her hand and leaves without turning back.</div>
-      <div class="panel-dialogue">
+    <div class="shot-body">
+      <div class="shot-action">Aiden puts down his phone, gets out of bed, and starts buttoning his shirt. Lauren sits up slowly and watches. She confronts him — "what is this?" He turns away to avoid her gaze, then quotes the Whiplash breakup scene verbatim. She catches him immediately. He kisses her hand and leaves without turning back.</div>
+      <div class="shot-dialogue">
         <span class="char-name">LAUREN</span>
-        Are you quoting the breakup scene from Whiplash right now?<br/>
+        Are you quoting the breakup scene from Whiplash right now?
         <span class="char-name">AIDEN</span>
         We both are dedicated to our craft.
       </div>
     </div>
-  </div>
+  </li>
 
-</div>
+</ul>
 
-<!-- ============ SCENE 2: WAITING ROOM ============ -->
-<div class="scene-header">Scene 2 - INT. Huntsman, Waiting Room - Day</div>
+<!-- SCENE 2 -->
+<div class="scene-header">Scene 2 — INT. Huntsman, Waiting Room — Day</div>
+<ul class="shot-list">
 
-<div class="panels-grid">
-
-  <div class="panel">
-    <div class="panel-number">Panel 05 <span class="shot-type">MEDIUM SHOT</span></div>
-    <div class="panel-image-container">
-      <img src="panel_05.png" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
-      <div class="placeholder" style="display:none;"><div class="panel-icon">&#9634;</div>Save as panel_05.png</div>
+  <li class="shot">
+    <div class="shot-meta">
+      <div class="shot-num">05</div>
+      <div class="shot-type">Medium Shot</div>
     </div>
-    <div class="panel-info">
-      <div class="panel-action">Aiden sits in a sterile waiting room, brimming with excitement. He turns to the GUY next to him, another 20-something student, and forces a conversation about extracurriculars. The guy is uncomfortable. Aiden brags about his,"Trombone and Men for Menstruation Society." The guy laughs uncomfortably. Aiden explains he sends cotton balls to Africa once every three months.</div>
-      <div class="panel-dialogue">
+    <div class="shot-body">
+      <div class="shot-action">Aiden sits in a sterile waiting room, brimming with excitement. He turns to the GUY next to him, another 20-something student, and forces a conversation about extracurriculars. The guy is uncomfortable. Aiden brags about his "Trombone and Men for Menstruation Society." The guy laughs uncomfortably. Aiden explains he sends cotton balls to Africa once every three months.</div>
+      <div class="shot-dialogue">
         <span class="char-name">AIDEN</span>
         Trombone and Men for Menstruation Society. That Kathy lady ate it up.
       </div>
     </div>
-  </div>
+  </li>
 
-  <div class="panel">
-    <div class="panel-number">Panel 06 <span class="shot-type">MEDIUM SHOT</span></div>
-    <div class="panel-image-container">
-      <img src="panel_06.png" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
-      <div class="placeholder" style="display:none;"><div class="panel-icon">&#9634;</div>Save as panel_06.png</div>
+  <li class="shot">
+    <div class="shot-meta">
+      <div class="shot-num">06</div>
+      <div class="shot-type">Medium Shot</div>
     </div>
-    <div class="panel-info">
-      <div class="panel-action">Aiden's name is called. He goes to dap up the guy, but the guy doesn't realize. Aiden waits awkwardly. When they finally try, Aiden hits his forearm instead of his hand. They try again,Aiden punches him. The guy yelps. Aiden throws finger guns and walks off.</div>
-      <div class="panel-dialogue">
+    <div class="shot-body">
+      <div class="shot-action">Aiden's name is called. He goes to dap up the guy, but the guy doesn't realize. Aiden waits awkwardly. When they finally try, Aiden hits his forearm instead of his hand. They try again — Aiden punches him. The guy yelps. Aiden throws finger guns and walks off.</div>
+      <div class="shot-dialogue">
         <span class="char-name">GUY</span>
         Ow, fuck.
       </div>
     </div>
-  </div>
+  </li>
 
-</div>
+</ul>
 
-<!-- ============ SCENE 3: THE INTERVIEW ============ -->
-<div class="scene-header">Scene 3 - INT. Office Room - Day - The Interview</div>
+<!-- SCENE 3 -->
+<div class="scene-header">Scene 3 — INT. Office Room — Day — The Interview</div>
+<ul class="shot-list">
 
-<div class="panels-grid">
-
-  <div class="panel">
-    <div class="panel-number">Panel 07 <span class="shot-type">MEDIUM SHOT</span></div>
-    <div class="panel-image-container">
-      <img src="panel_07.png" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
-      <div class="placeholder" style="display:none;"><div class="panel-icon">&#9634;</div>Save as panel_07.png</div>
+  <li class="shot">
+    <div class="shot-meta">
+      <div class="shot-num">07</div>
+      <div class="shot-type">Medium Shot</div>
     </div>
-    <div class="panel-info">
-      <div class="panel-action">Aiden enters a standard office. JARED, a 30-something white male, sits at the table organizing papers. He stands, smiles warmly, and shakes Aiden's hand. Aiden relaxes,this feels good.</div>
-      <div class="panel-dialogue">
+    <div class="shot-body">
+      <div class="shot-action">Aiden enters a standard office. JARED, a 30-something white male, sits at the table organizing papers. He stands, smiles warmly, and shakes Aiden's hand. Aiden relaxes — this feels good.</div>
+      <div class="shot-dialogue">
         <span class="char-name">JARED</span>
         Aiden, it's nice to meet you. Hopefully not giving you too much of a hard time?
       </div>
     </div>
-  </div>
+  </li>
 
-  <div class="panel">
-    <div class="panel-number">Panel 08 <span class="shot-type">CLOSE-UP / REACTION</span></div>
-    <div class="panel-image-container">
-      <img src="panel_08.png" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
-      <div class="placeholder" style="display:none;"><div class="panel-icon">&#9634;</div>Save as panel_08.png</div>
+  <li class="shot">
+    <div class="shot-meta">
+      <div class="shot-num">08</div>
+      <div class="shot-type">Close-Up / Reaction</div>
     </div>
-    <div class="panel-info">
-      <div class="panel-action">Aiden delivers his why-Goldman answer, ending with "Goldman is the gold standard." Jared covers his mouth with his hand and silently mouths "oh my god" over and over again. His expression is barely contained mockery. Aiden suffers through a laugh, not quite sure what's happening.</div>
-      <div class="panel-dialogue">
+    <div class="shot-body">
+      <div class="shot-action">Aiden delivers his why-Goldman answer, ending with "Goldman is the gold standard." Jared covers his mouth with his hand and silently mouths "oh my god" over and over again. His expression is barely contained mockery. Aiden suffers through a laugh, not quite sure what's happening.</div>
+      <div class="shot-dialogue">
         <span class="char-name">JARED</span>
         Wow. You chat that man? That's inspired, poignant.
       </div>
     </div>
-  </div>
+  </li>
 
-  <div class="panel">
-    <div class="panel-number">Panel 09 <span class="shot-type">OVER-THE-SHOULDER</span></div>
-    <div class="panel-image-container">
-      <img src="panel_09.png" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
-      <div class="placeholder" style="display:none;"><div class="panel-icon">&#9634;</div>Save as panel_09.png</div>
+  <li class="shot">
+    <div class="shot-meta">
+      <div class="shot-num">09</div>
+      <div class="shot-type">Over-the-Shoulder</div>
     </div>
-    <div class="panel-info">
-      <div class="panel-action">The interview takes a sinister turn. After Aiden's commitment answer, Jared's questions go off-script: "You respect your mom? You like women? Sexually. Do you like brunettes?" Aiden's confusion grows. He stammers. He tries to answer but can't find the ground. Jared is calm, almost clinical.</div>
-      <div class="panel-dialogue">
+    <div class="shot-body">
+      <div class="shot-action">The interview takes a sinister turn. After Aiden's commitment answer, Jared's questions go off-script: "You respect your mom? You like women? Sexually. Do you like brunettes?" Aiden's confusion grows. He stammers. He tries to answer but can't find the ground. Jared is calm, almost clinical.</div>
+      <div class="shot-dialogue">
         <span class="char-name">JARED</span>
-        Do you like brunettes?<br/>
+        Do you like brunettes?
         <span class="char-name">AIDEN</span>
-        Ye- I'm sorry, how is this relevant?
+        Ye— I'm sorry, how is this relevant?
       </div>
     </div>
-  </div>
+  </li>
 
-  <div class="panel">
-    <div class="panel-number">Panel 10 <span class="shot-type">MEDIUM SHOT</span></div>
-    <div class="panel-image-container">
-      <img src="panel_10.png" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
-      <div class="placeholder" style="display:none;"><div class="panel-icon">&#9634;</div>Save as panel_10.png</div>
+  <li class="shot">
+    <div class="shot-meta">
+      <div class="shot-num">10</div>
+      <div class="shot-type">Medium Shot</div>
     </div>
-    <div class="panel-info">
-      <div class="panel-action">Jared suddenly stands up, leans over the table,no handshake. He chuckles: "What a waste of time this was." He slides his business card across the desk. Aiden is frozen. His face drops. He takes the card and leaves the room, shell-shocked.</div>
-      <div class="panel-dialogue">
+    <div class="shot-body">
+      <div class="shot-action">Jared suddenly stands up, leans over the table — no handshake. He chuckles: "What a waste of time this was." He slides his business card across the desk. Aiden is frozen. His face drops. He takes the card and leaves the room, shell-shocked.</div>
+      <div class="shot-dialogue">
         <span class="char-name">JARED</span>
         I think we're done here. What a waste of time this was. Have a good day, Aiden.
       </div>
     </div>
-  </div>
+  </li>
 
-</div>
+</ul>
 
-<!-- ============ SCENE 4: THE EXIT + REVEAL ============ -->
-<div class="scene-header">Scene 4 - INT. Huntsman, Waiting Room - Day - The Walk of Shame</div>
+<!-- SCENE 4 -->
+<div class="scene-header">Scene 4 — INT. Huntsman, Waiting Room — Day — The Walk of Shame</div>
+<ul class="shot-list">
 
-<div class="panels-grid">
-
-  <div class="panel">
-    <div class="panel-number">Panel 11 <span class="shot-type">WIDE SHOT</span></div>
-    <div class="panel-image-container">
-      <img src="panel_11.png" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
-      <div class="placeholder" style="display:none;"><div class="panel-icon">&#9634;</div>Save as panel_11.png</div>
+  <li class="shot">
+    <div class="shot-meta">
+      <div class="shot-num">11</div>
+      <div class="shot-type">Wide Shot</div>
     </div>
-    <div class="panel-info">
-      <div class="panel-action">Aiden walks out past the waiting room. In the background, the guy he talked to earlier is shaking his interviewer's hand,he must have gotten the job. Aiden barely registers it. He looks down at the business card in his hand.</div>
+    <div class="shot-body">
+      <div class="shot-action">Aiden walks out past the waiting room. In the background, the guy he talked to earlier is shaking his interviewer's hand — he must have gotten the job. Aiden barely registers it. He looks down at the business card in his hand.</div>
     </div>
-  </div>
+  </li>
 
-  <div class="panel">
-    <div class="panel-number">Panel 12 <span class="shot-type">INSERT / MATCH CUT</span></div>
-    <div class="panel-image-container">
-      <img src="panel_12.png" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
-      <div class="placeholder" style="display:none;"><div class="panel-icon">&#9634;</div>Save as panel_12.png</div>
+  <li class="shot">
+    <div class="shot-meta">
+      <div class="shot-num">12</div>
+      <div class="shot-type">Insert / Match Cut</div>
     </div>
-    <div class="panel-info">
-      <div class="panel-action">Close-up on the business card: JARED SHOHFI. It clicks. MATCH CUT to Lauren's dorm room door nameplate: LAUREN SHOHFI.</div>
+    <div class="shot-body">
+      <div class="shot-action">Close-up on the business card: JARED SHOHFI. It clicks. MATCH CUT to Lauren's dorm room door nameplate: LAUREN SHOHFI.</div>
     </div>
-  </div>
+  </li>
 
-</div>
+</ul>
 
-<!-- ============ SCENE 5: DORM CONFRONTATION ============ -->
-<div class="scene-header">Scene 5 - INT. Dorm Room Hall / Dorm Room - Evening - The Confrontation</div>
+<!-- SCENE 5 -->
+<div class="scene-header">Scene 5 — INT. Dorm Room Hall / Dorm Room — Evening — The Confrontation</div>
+<ul class="shot-list">
 
-<div class="panels-grid">
-
-  <div class="panel">
-    <div class="panel-number">Panel 13 <span class="shot-type">MEDIUM SHOT</span></div>
-    <div class="panel-image-container">
-      <img src="panel_13.png" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
-      <div class="placeholder" style="display:none;"><div class="panel-icon">&#9634;</div>Save as panel_13.png</div>
+  <li class="shot">
+    <div class="shot-meta">
+      <div class="shot-num">13</div>
+      <div class="shot-type">Medium Shot</div>
     </div>
-    <div class="panel-info">
-      <div class="panel-action">Aiden bangs on Lauren's door. She swings it open, confused. He walks past her into the room. She's annoyed and faintly hopeful. He confronts her,"Your brother works at Goldman?" She scoffs: "I've told you this a million times." Lauren laughs when he tells her Jared asked about brunettes and his mom. Then she turns cold again.</div>
-      <div class="panel-dialogue">
+    <div class="shot-body">
+      <div class="shot-action">Aiden bangs on Lauren's door. She swings it open, confused. He walks past her into the room. She's annoyed and faintly hopeful. He confronts her — "Your brother works at Goldman?" She scoffs: "I've told you this a million times." Lauren laughs when he tells her Jared asked about brunettes and his mom. Then she turns cold again.</div>
+      <div class="shot-dialogue">
         <span class="char-name">AIDEN</span>
-        Your brother works at Goldman?<br/>
+        Your brother works at Goldman?
         <span class="char-name">LAUREN</span>
         I've told you this a million times.
       </div>
     </div>
-  </div>
+  </li>
 
-  <div class="panel">
-    <div class="panel-number">Panel 14 <span class="shot-type">TWO-SHOT</span></div>
-    <div class="panel-image-container">
-      <img src="panel_14.png" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
-      <div class="placeholder" style="display:none;"><div class="panel-icon">&#9634;</div>Save as panel_14.png</div>
+  <li class="shot">
+    <div class="shot-meta">
+      <div class="shot-num">14</div>
+      <div class="shot-type">Two-Shot</div>
     </div>
-    <div class="panel-info">
-      <div class="panel-action">Aiden reaches for Lauren's hands, says he doesn't even care about Goldman anymore. She pushes him away. Then she delivers the killing blow,the speech about labels. Why do you need Goldman? Why did you need Wharton? Labels mean EVERYTHING. "And it's clear they mean more to you than real humans do." She grabs her bag.</div>
-      <div class="panel-dialogue">
+    <div class="shot-body">
+      <div class="shot-action">Aiden reaches for Lauren's hands, says he doesn't even care about Goldman anymore. She pushes him away. Then she delivers the killing blow — the speech about labels. Why do you need Goldman? Why did you need Wharton? Labels mean EVERYTHING. "And it's clear they mean more to you than real humans do." She grabs her bag.</div>
+      <div class="shot-dialogue">
         <span class="char-name">LAUREN</span>
         Why do we need a label? Why do you need Goldman? Why did you need Wharton? Labels mean EVERYTHING. And it's clear they mean more to you than real humans do.
       </div>
     </div>
-  </div>
+  </li>
 
-  <div class="panel">
-    <div class="panel-number">Panel 15 <span class="shot-type">WIDE SHOT</span></div>
-    <div class="panel-image-container">
-      <img src="panel_15.png" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
-      <div class="placeholder" style="display:none;"><div class="panel-icon">&#9634;</div>Save as panel_15.png</div>
+  <li class="shot">
+    <div class="shot-meta">
+      <div class="shot-num">15</div>
+      <div class="shot-type">Wide Shot</div>
     </div>
-    <div class="panel-info">
-      <div class="panel-action">Lauren exits. Aiden stays alone in her pink room. The evening light dims. He looks around at her things,stuffed animals, posters. He sifts through a pile of her books. For the first time, Aiden takes a real look at Lauren. He can't remember the last time he asked her a question about herself. Quiet. Heavy.</div>
+    <div class="shot-body">
+      <div class="shot-action">Lauren exits. Aiden stays alone in her pink room. The evening light dims. He looks around at her things — stuffed animals, posters. He sifts through a pile of her books. For the first time, Aiden takes a real look at Lauren. He can't remember the last time he asked her a question about herself. Quiet. Heavy.</div>
     </div>
-  </div>
+  </li>
 
-</div>
+</ul>
 
-<!-- ============ SCENE 6: LOCUST WALK,ONE SUMMER LATER ============ -->
-<div class="scene-header">Scene 6 - EXT. Locust Walk - Day - One Summer Later</div>
+<!-- SCENE 6 -->
+<div class="scene-header">Scene 6 — EXT. Locust Walk — Day — One Summer Later</div>
+<ul class="shot-list">
 
-<div class="panels-grid">
-
-  <div class="panel">
-    <div class="panel-number">Panel 16 <span class="shot-type">MEDIUM SHOT / WIDE</span></div>
-    <div class="panel-image-container">
-      <img src="panel_16.png" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
-      <div class="placeholder" style="display:none;"><div class="panel-icon">&#9634;</div>Save as panel_16.png</div>
+  <li class="shot">
+    <div class="shot-meta">
+      <div class="shot-num">16</div>
+      <div class="shot-type">Medium / Wide</div>
     </div>
-    <div class="panel-info">
-      <div class="panel-action">A full summer has passed. Aiden walks along Locust Walk and stops at a wooden podium covered in flyers. Lauren's face is on a poster: "Penn's Most Accomplished Interns",listing McKinsey, Bain, BCG, Palantir, Goldman Sachs. Lauren emerges from behind the podium. She was just stapling flyers. They run into each other.</div>
+    <div class="shot-body">
+      <div class="shot-action">A full summer has passed. Aiden walks along Locust Walk and stops at a wooden podium covered in flyers. Lauren's face is on a poster: "Penn's Most Accomplished Interns" — listing McKinsey, Bain, BCG, Palantir, Goldman Sachs. Lauren emerges from behind the podium. She was just stapling flyers. They run into each other.</div>
     </div>
-  </div>
+  </li>
 
-  <div class="panel">
-    <div class="panel-number">Panel 17 <span class="shot-type">TWO-SHOT</span></div>
-    <div class="panel-image-container">
-      <img src="panel_17.png" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
-      <div class="placeholder" style="display:none;"><div class="panel-icon">&#9634;</div>Save as panel_17.png</div>
+  <li class="shot">
+    <div class="shot-meta">
+      <div class="shot-num">17</div>
+      <div class="shot-type">Two-Shot</div>
     </div>
-    <div class="panel-info">
-      <div class="panel-action">Stilted, awkward small talk. Lauren did Palantir,she got the offer last fall, was literally with Aiden when it came through. He didn't remember. He mumbles that he "worked in legal." She probes. He hedges. She calls it,"Was it your dad's firm in New Jersey?" He deflects: "confidential, high-brow clients." A beat of silence. Then Aiden asks if she'd refer him for next summer.</div>
-      <div class="panel-dialogue">
+    <div class="shot-body">
+      <div class="shot-action">Stilted, awkward small talk. Lauren did Palantir — she got the offer last fall, was literally with Aiden when it came through. He didn't remember. He mumbles that he "worked in legal." She probes. He hedges. She calls it: "Was it your dad's firm in New Jersey?" He deflects: "confidential, high-brow clients." A beat of silence. Then Aiden asks if she'd refer him for next summer.</div>
+      <div class="shot-dialogue">
         <span class="char-name">LAUREN</span>
-        Was it your dad's firm in New Jersey?<br/>
+        Was it your dad's firm in New Jersey?
         <span class="char-name">AIDEN</span>
         I worked with a lot of, um, confidential and high-brow clients.
       </div>
     </div>
-  </div>
+  </li>
 
-  <div class="panel">
-    <div class="panel-number">Panel 18 <span class="shot-type">WIDE SHOT / FINAL FRAME</span></div>
-    <div class="panel-image-container">
-      <img src="panel_18.png" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
-      <div class="placeholder" style="display:none;"><div class="panel-icon">&#9634;</div>Save as panel_18.png</div>
+  <li class="shot">
+    <div class="shot-meta">
+      <div class="shot-num">18</div>
+      <div class="shot-type">Wide Shot / Final Frame</div>
     </div>
-    <div class="panel-info">
-      <div class="panel-action">Lauren's face. Then: "Yeah, of course Aiden. And while we're at it, I'll give you head." She unloads,fuck Goldman, fuck the non-profit, fuck the period club. She walks away calling back: "And I'm removing you on LinkedIn!" Aiden checks his phone. His face: devastated. His mouth forms the last words of the film.</div>
-      <div class="panel-dialogue">
+    <div class="shot-body">
+      <div class="shot-action">Lauren's face. Then: "Yeah, of course Aiden. And while we're at it, I'll give you head." She unloads — fuck Goldman, fuck the non-profit, fuck the period club. She walks away calling back: "And I'm removing you on LinkedIn!" Aiden checks his phone. His face: devastated. His mouth forms the last words of the film.</div>
+      <div class="shot-dialogue">
         <span class="char-name">LAUREN</span>
-        And I'm removing you on LinkedIn!<br/>
+        And I'm removing you on LinkedIn!
         <span class="char-name">AIDEN</span>
         Fuck. I just hit 500.
       </div>
     </div>
-  </div>
+  </li>
 
-</div>
+</ul>
 
-<footer>
-  CONFLICT OF INTEREST - Storyboard
-</footer>
+<footer>CONFLICT OF INTEREST — Shot List</footer>
 
 </body>
 </html>
